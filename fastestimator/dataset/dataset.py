@@ -223,7 +223,7 @@ class FEDataset(Dataset):
         for frac in fractions:
             if isinstance(frac, float):
                 frac_sum += frac
-                frac = math.ceil(original_size * frac)
+                frac = math.floor(original_size * frac)
                 int_sum += frac
                 n_samples.append(frac)
                 if method is None:
