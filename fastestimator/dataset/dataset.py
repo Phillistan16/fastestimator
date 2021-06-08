@@ -242,8 +242,8 @@ class FEDataset(Dataset):
             else:
                 raise ValueError(
                     "split only accepts float, int, or iter[int] type splits, but {} was given".format(frac))
-        assert frac_sum < 1, "total split fraction should sum to less than 1.0, but got: {}".format(frac_sum)
-        assert int_sum < original_size, \
+        assert frac_sum <= 1, "total split fraction should sum to less than 1.0, but got: {}".format(frac_sum)
+        assert int_sum <= original_size, \
             "total split requirements ({}) should sum to less than dataset size ({})".format(int_sum, original_size)
 
         if method == 'number':
